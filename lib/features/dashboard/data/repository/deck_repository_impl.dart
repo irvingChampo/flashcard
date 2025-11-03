@@ -9,7 +9,6 @@ class DeckRepositoryImpl implements DeckRepository {
 
   @override
   Future<List<Deck>> getDecks() async {
-    // Aquí el modelo es compatible con la entidad, por lo que podemos devolverlo directamente.
     return await remoteDatasource.fetchDecks();
   }
 }

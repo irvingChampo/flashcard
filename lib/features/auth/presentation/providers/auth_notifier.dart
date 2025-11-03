@@ -12,11 +12,10 @@ class AuthNotifier extends ChangeNotifier {
     _isLoading = true;
     notifyListeners();
 
-    // Simula una llamada a un API de autenticación
     await Future.delayed(const Duration(seconds: 2));
 
     _isLoading = false;
-    _appState.login(); // Cambia el estado global de la app
+    _appState.login();
     notifyListeners();
   }
 

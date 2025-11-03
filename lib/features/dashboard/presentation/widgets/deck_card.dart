@@ -5,16 +5,11 @@ class DeckCard extends StatelessWidget {
   final Deck deck;
   final VoidCallback onTap;
 
-  const DeckCard({
-    super.key,
-    required this.deck,
-    required this.onTap,
-  });
+  const DeckCard({super.key, required this.deck, required this.onTap,});
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    // Convertimos el color hexadecimal guardado como String a un objeto Color
     final cardColor = Color(int.parse(deck.color));
 
     return Card(

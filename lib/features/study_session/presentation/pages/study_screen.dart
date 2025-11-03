@@ -26,7 +26,6 @@ class _StudyScreenState extends State<StudyScreen> {
   Widget build(BuildContext context) {
     final studyProvider = context.watch<StudyProvider>();
 
-    // Escuchamos los cambios para navegar a los resultados cuando termine la sesión.
     if (studyProvider.isSessionFinished) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         context.goNamed(
@@ -34,7 +33,6 @@ class _StudyScreenState extends State<StudyScreen> {
           pathParameters: {'id': widget.deckId},
         );
       });
-      // Mostramos un widget vacío mientras se navega
       return const Scaffold(body: Center(child: Text("Finalizando sesión...")));
     }
 
@@ -81,7 +79,7 @@ class _StudyScreenState extends State<StudyScreen> {
 
   Widget _buildInstruction(BuildContext context) {
     return SizedBox(
-      height: 120, // Altura fija para evitar saltos en la UI
+      height: 120,
       child: Center(
         child: Text(
           'Toca la tarjeta para ver la respuesta',

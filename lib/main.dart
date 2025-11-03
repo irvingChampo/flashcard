@@ -1,3 +1,5 @@
+import 'package:device_preview/device_preview.dart'; // <-- 1. Importar
+import 'package:flutter/foundation.dart'; // <-- 2. Importar (para kReleaseMode)
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:provider/provider.dart';
@@ -32,15 +34,18 @@ Future<void> main() async {
   final getDeckDetailsUseCase = GetDeckDetails(deckDetailRepository);
 
   runApp(
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider.value(value: appState),
-        ChangeNotifierProvider(create: (_) => AuthNotifier(appState)),
-        ChangeNotifierProvider(create: (_) => DashboardProvider(getDecks: getDecksUseCase)),
-        ChangeNotifierProvider(create: (_) => DeckDetailProvider(getDeckDetails: getDeckDetailsUseCase)),
-        ChangeNotifierProvider(create: (_) => StudyProvider()),
-      ],
-      child: const MyApp(),
+    DevicePreview(
+      enabled: !kReleaseMode,
+      builder: (context) => MultiProvider(
+        providers: [
+          ChangeNotifierProvider.value(value: appState),
+          ChangeNotifierProvider(create: (_) => AuthNotifier(appState)),
+          ChangeNotifierProvider(create: (_) => DashboardProvider(getDecks: getDecksUseCase)),
+          ChangeNotifierProvider(create: (_) => DeckDetailProvider(getDeckDetails: getDeckDetailsUseCase)),
+          ChangeNotifierProvider(create: (_) => StudyProvider()),
+        ],
+        child: const MyApp(),
+      ),
     ),
   );
 }

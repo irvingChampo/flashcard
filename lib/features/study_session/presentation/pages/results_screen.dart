@@ -21,7 +21,7 @@ class ResultsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Resultados'),
-        automaticallyImplyLeading: false, // Oculta el botón de regreso
+        automaticallyImplyLeading: false,
       ),
       body: Center(
         child: Padding(
@@ -77,7 +77,6 @@ class ResultsScreen extends StatelessWidget {
               const Spacer(),
               ElevatedButton(
                 onPressed: () {
-                  // Volver al dashboard. `go` reconstruye la pila de navegación.
                   context.goNamed(AppRoutes.dashboard);
                 },
                 child: const Text('Volver a Mis Mazos'),

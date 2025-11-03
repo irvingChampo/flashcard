@@ -52,7 +52,6 @@ class LoginScreen extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
-                      // En una app real, aquí se validarían las credenciales del LoginForm
                       authNotifier.login();
                     },
                     icon: const Icon(Icons.login),

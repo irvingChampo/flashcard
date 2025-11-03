@@ -19,7 +19,7 @@ class StudyProvider with ChangeNotifier {
 
   void startSession(DeckDetail deck) {
     _deck = deck;
-    _flashcards = List.from(deck.flashcards)..shuffle(); // Mezclamos las tarjetas
+    _flashcards = List.from(deck.flashcards)..shuffle();
     _currentIndex = 0;
     _correctAnswers = 0;
     _incorrectAnswers = 0;

@@ -76,11 +76,9 @@ class _DeckDetailScreenState extends State<DeckDetailScreen> {
                   textStyle: Theme.of(context).textTheme.titleMedium,
                 ),
                 onPressed: deck.flashcards.isEmpty
-                    ? null // Deshabilita el botón si no hay tarjetas
+                    ? null
                     : () {
-                  // Preparamos el provider de estudio antes de navegar
                   context.read<StudyProvider>().startSession(deck);
-                  // Navegamos a la pantalla de estudio
                   context.goNamed(
                     AppRoutes.study,
                     pathParameters: {'id': deck.id},

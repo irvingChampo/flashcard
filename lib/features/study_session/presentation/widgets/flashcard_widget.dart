@@ -1,6 +1,5 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-// Este es el widget reutilizable y con animación
 class FlashcardWidget extends StatefulWidget {
   final String question;
   final String answer;
@@ -25,7 +24,6 @@ class _FlashcardWidgetState extends State<FlashcardWidget> {
   @override
   void didUpdateWidget(covariant FlashcardWidget oldWidget) {
     super.didUpdateWidget(oldWidget);
-// Si la pregunta cambia (es una nueva tarjeta), reseteamos el estado de volteo
     if (widget.question != oldWidget.question) {
       setState(() {
         _isFlipped = false;
@@ -37,7 +35,6 @@ class _FlashcardWidgetState extends State<FlashcardWidget> {
     final cardContent = _isFlipped ? widget.answer : widget.question;
     final cardSide = _isFlipped ? 'Respuesta' : 'Pregunta';
 
-// Usamos un TweenAnimationBuilder para animar la rotación
     return GestureDetector(
       onTap: _flipCard,
       child: TweenAnimationBuilder(

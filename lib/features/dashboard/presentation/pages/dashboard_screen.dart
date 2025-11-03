@@ -17,8 +17,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
   @override
   void initState() {
     super.initState();
-    // Usamos addPostFrameCallback para asegurarnos de que el provider se llame
-    // después de que el widget esté completamente construido.
     WidgetsBinding.instance.addPostFrameCallback((_) {
       Provider.of<DashboardProvider>(context, listen: false).fetchDecks();
     });
